@@ -1,0 +1,6 @@
+*{
+    /* margin 是外边距 padding 是内边距  box-sizing 元素的总高度和宽度包含内边距和边框(padding 与 border) */
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+}
