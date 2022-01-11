@@ -21,7 +21,6 @@
         </el-submenu>
 
         <el-menu-item index="book" :class="$route.path=='/book'?'is-active':''">图书测试</el-menu-item>
-        <el-menu-item index="addbook">添加图书</el-menu-item>
         <el-menu-item index="modifyBook" v-if="false" :class="$route.path=='/modifyBook'?'is-active':''">修改图书</el-menu-item>
         <el-menu-item index="upload">上传文件</el-menu-item>
       </el-menu>

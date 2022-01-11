@@ -4,8 +4,6 @@ import About from '../views/About'
 import Book from '../views/Book'
 import Index from '../views/Index'
 import NewClub from '../views/NewClub'
-import addBook from '../views/AddBook'
-import modifyBook from '../views/ModifyBook'
 import upload from '../views/UpLoadTest'
 
 Vue.use(VueRouter)
@@ -36,15 +34,6 @@ const routes = [
     path: '/book',
     name: 'Book',
     component: Book
-  },
-  {
-    path: '/addbook',
-    name: 'AddBook',
-    component: addBook
-  },
-  {
-    path: '/modifyBook',
-    component: modifyBook
   },
   {
     path: '/upload',
