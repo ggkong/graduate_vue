@@ -1,44 +1,57 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import About from '../views/About'
 import Book from '../views/Book'
 import Index from '../views/Index'
 import NewClub from '../views/NewClub'
 import upload from '../views/UpLoadTest'
-
+import main from '../views/main'
+import login from '../views/login'
+import question from '../views/Question'
+import register from '../views/Register'
 Vue.use(VueRouter)
 
-const routes = [
-  {
+const routes = [{
     path: '/',
-    name: 'Index',
-    component: Index,
-    redirect: '/index'
+    name: 'main',
+    redirect: '/index',
+    component: main,
+    children: [{
+        path: '/index',
+        name: 'Index',
+        component: Index,
+      },
+      {
+        path: '/newclub',
+        name: 'NewClub',
+        component: NewClub
+      },
+      {
+        path: '/question',
+        name: 'question',
+        component: question
+      },
+      {
+        path: '/book',
+        name: 'Book',
+        component: Book
+      },
+      {
+        path: '/upload',
+        component: upload
+      }
+    ]
   },
   {
-    path: '/index',
-    name: 'Index',
-    component: Index
+    path: '/login',
+    name: 'login',
+    component: login
   },
   {
-    path: '/newclub',
-    name: 'NewClub',
-    component: NewClub
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: About
-  },
-  {
-    path: '/book',
-    name: 'Book',
-    component: Book
-  },
-  {
-    path: '/upload',
-    component: upload
+    path:'/register',
+    name:'register',
+    component:register
   }
+
 ]
 
 const router = new VueRouter({

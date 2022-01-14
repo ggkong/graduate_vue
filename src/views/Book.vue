@@ -25,7 +25,7 @@
 
     <el-pagination background layout="prev, pager, next" :page-size="6" :total="totals" @current-change="page">
     </el-pagination>
-    <el-dialog title="添加图书" :visible.sync="dialogVisibleAdd" width="30%" :before-close="handleClose">
+    <el-dialog title="添加图书" :visible.sync="dialogVisibleAdd" width="30%">
       <div style="margin:0 auto; text-align:center;">
         <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
           <el-form-item label="名称" prop="name" style="width: 90%;">
@@ -43,7 +43,7 @@
       </div>
     </el-dialog>
     
-    <el-dialog title="修改图书" :visible.sync="dialogVisibleModify" width="30%" :before-close="handleClose">
+    <el-dialog title="修改图书" :visible.sync="dialogVisibleModify" width="30%">
       <div style="margin:0 auto; text-align:center;">
         <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
           <el-form-item label="名称" prop="name" style="width: 90%;">
@@ -67,6 +67,8 @@
 
 
 <script>
+  import request from "@/utils/request";
+
   export default {
     methods: {
       modifyButtonCancle() {
@@ -160,13 +162,6 @@
         console.log(row);
         this.ruleForm.name = row.author
         this.ruleForm.author = row.name
-        /*this.$router.push({
-          path: '/modifyBook',
-          query: {
-            id: row.id
-          }
-        })
-        console.log(row);*/
       },
       page(currentPage) {
         const _this = this
@@ -210,7 +205,12 @@
     // 页面初始调用方法
     created() {
       const _this = this
-      axios({
+      request.get('/book/findAll/1/6').then(function(response){
+        console.log(response)
+          _this.tableData = response.content
+          _this.totals = response.totalElements
+      })
+      /*axios({
           method: 'get',
           url: 'http://localhost:8181/book/findAll/1/6',
         })
@@ -218,7 +218,7 @@
           console.log(response)
           _this.tableData = response.data.content
           _this.totals = response.data.totalElements
-        });
+        });*/
     },
 
     data() {
