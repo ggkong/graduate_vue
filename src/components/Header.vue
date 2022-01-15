@@ -5,7 +5,8 @@
         <div style="width: 100px;">
             <el-dropdown @command="handleCommand">
                 <span class="el-dropdown-link">
-                    孔格<i class="el-icon-arrow-down el-icon--right"></i>
+                    {{user.username}}
+                    <i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item>个人中心</el-dropdown-item>
@@ -19,9 +20,16 @@
 <script>
     export default {
         name:'Header',
+        data() {
+            return {
+                user:JSON.parse(sessionStorage.getItem("user"))
+            }
+        },
         methods: {
             handleCommand(command){
                 if(command === "logout"){
+                    // 删除session
+                    sessionStorage.removeItem("user");
                     this.$router.push('/login')
                     this.$message({
                         type:"success",

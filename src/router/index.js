@@ -8,6 +8,7 @@ import main from '../views/main'
 import login from '../views/login'
 import question from '../views/Question'
 import register from '../views/Register'
+import notes from '../views/Notes'
 Vue.use(VueRouter)
 
 const routes = [{
@@ -37,7 +38,13 @@ const routes = [{
       },
       {
         path: '/upload',
+        name:"upload",
         component: upload
+      },
+      {
+        path:'/notes',
+        name:"notes",
+        component: notes
       }
     ]
   },

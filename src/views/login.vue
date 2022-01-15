@@ -57,6 +57,8 @@
                                     type: "success",
                                     message: "登录成功"
                                 })
+                                console.log(res.data);
+                                sessionStorage.setItem("user",JSON.stringify(res.data))
                                 this.$router.push("/") //登录成功之后进行页面的跳转，跳转到主页
                             } else {
                                 this.$message({

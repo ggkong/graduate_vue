@@ -3,10 +3,10 @@
         <Header></Header>
         <el-container>
             <el-aside width="200px">
-                <el-menu default-active="1" router>
-                    <el-menu-item index="index" :class="$route.path=='/index'?'is-active':''">首页</el-menu-item>
-                    <el-menu-item index="newClub">社团招新</el-menu-item>
-                    <el-menu-item index="question">问题</el-menu-item>
+                <el-menu :default-active="path" router>
+                    <el-menu-item index="/index" :class="$route.path=='/index'?'is-active':''">首页</el-menu-item>
+                    <el-menu-item index="/newClub">社团招新</el-menu-item>
+                    <el-menu-item index="/question">问题</el-menu-item>
                     <el-menu-item index="4">状态</el-menu-item>
                     <el-submenu index="5">
                         <template slot="title">排行榜</template>
@@ -19,8 +19,9 @@
                         <el-menu-item index="6-2">竞赛结果排名</el-menu-item>
                     </el-submenu>
 
-                    <el-menu-item index="book" :class="$route.path=='/book'?'is-active':''">图书测试</el-menu-item>
-                    <el-menu-item index="upload">上传文件</el-menu-item>
+                    <el-menu-item index="/book">图书测试</el-menu-item>
+                    <el-menu-item index="/upload">上传文件</el-menu-item>
+                    <el-menu-item index="/notes">个人笔记</el-menu-item>
                 </el-menu>
 
             </el-aside>
@@ -79,10 +80,15 @@
     export default {
         name: 'main',
         data() {
-            return {}
+            return {
+                path:this.$route.path
+            }
         },
         components: {
             Header,
-        }
+        },
+        created() {
+            
+        },
     };
 </script>
