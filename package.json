@@ -7,10 +7,12 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "codemirror": "^5.65.0",
     "core-js": "~3.20.1",
     "element-ui": "^2.15.6",
     "moment": "^2.29.1",
     "vue": "~2.6.14",
+    "vue-codemirror": "^4.0.6",
     "vue-router": "~3.5.3",
     "vuex": "~3.6.2",
     "wangeditor": "^4.7.11"
